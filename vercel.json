@@ -1,0 +1,26 @@
+{
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "static/**",
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index?__path=/api/$1"
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": "/api/index?__path=/uploads/$1"
+    },
+    {
+      "source": "/",
+      "destination": "/api/index?__path=/"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/index?__path=/$1"
+    }
+  ]
+}

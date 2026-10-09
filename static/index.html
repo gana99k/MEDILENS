@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f5">
+  <meta name="description" content="A Supabase-backed health-record organizer with careful AI-assisted explanations.">
+  <title>MedLens — Personal Health Copilot</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <section id="login-screen" class="login-screen hidden" aria-labelledby="login-title"></section>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#" data-nav="overview" aria-label="MedLens home">
+        <span class="brand-mark" aria-hidden="true">M<span>+</span></span>
+        <span class="brand-name">medlens<span class="brand-dot">.</span><small>PERSONAL HEALTH COPILOT</small></span>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-link active" data-nav="overview"><span class="nav-icon">◫</span><span data-i18n="overview">Overview</span></button>
+        <button class="nav-link" data-nav="records"><span class="nav-icon">▤</span><span data-i18n="records">My records</span><span class="nav-count" id="record-count">0</span></button>
+        <button class="nav-link" data-nav="timeline"><span class="nav-icon">↗</span><span data-i18n="timeline">Health timeline</span></button>
+        <button class="nav-link" data-nav="profile"><span class="nav-icon">◎</span><span data-i18n="profile">Health profile</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-footer"><span class="footer-avatar">AS</span><span><strong>Aarav Sharma</strong><small data-i18n="demoPatient">Demo patient</small></span><span class="footer-more">···</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumb"><strong id="page-title">Overview</strong></div>
+        <div class="top-actions">
+          <label class="language-select-wrap"><span class="sr-only">Interface language</span><select class="language-select" id="language-toggle" aria-label="Interface language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="mr">मराठी</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option></select></label>
+          <button class="avatar-button" data-action="signout" aria-label="Sign out of demo" data-i18n-aria-label="signOut" title="Sign out">AS</button>
+        </div>
+      </header>
+
+      <section id="screen-overview" class="screen"></section>
+      <section id="screen-records" class="screen hidden"></section>
+      <section id="screen-timeline" class="screen hidden"></section>
+      <section id="screen-profile" class="screen hidden"></section>
+      <footer class="safety-footer"><span class="safety-shield">◇</span><span data-i18n="footerDisclaimer">MedLens is an information organizer, not a medical device. AI summaries can be wrong — verify records with your care team.</span><button id="footer-learn" data-i18n="learnMore">Learn more</button></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modal-backdrop">
+    <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"></section>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+</body>
+</html>
